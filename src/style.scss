@@ -1,0 +1,39 @@
+// Design Tokens
+@use "@ugent-ui/design-tokens/build/scss/_light-theme-map" as light-theme-map;
+@use "@ugent-ui/design-tokens/build/scss/_dark-theme-map" as dark-theme-map;
+@use "@ugent-ui/design-tokens/build/scss/_core-map" as core-map;
+@import "@ugent-ui/design-tokens/src/utils/scss/helpers";
+
+// Override Bootstrap
+// https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+$primary: map-get(light-theme-map.$light, "color-text-brand");
+$input-btn-padding-y: map-get(core-map.$core, "space-100");
+$input-btn-padding-x: map-get(core-map.$core, "space-150");
+
+// Import Bootstap
+@import "bootstrap/scss/bootstrap";
+
+:host {
+  display: block; /* Ensure it has a layout */
+
+  // Set the global Bootstrap CSS variables that are not available within the
+  // shadow DOM's scope here
+  --bs-border-width: #{token("border-width-small", core-map.$core)};
+  --bs-border-radius: #{map-get(core-map.$core, "border-radius")};
+
+  // Override bootstrap classes vars
+  .btn-primary {
+    --bs-btn-bg: #{token("color-text-brand", light-theme-map.$light)};
+  }
+
+  // Webcomponent customisations
+  .my-element {
+    padding: map-get(core-map.$core, "space-200");
+    border: token("border-width-small", core-map.$core) solid
+      token("color-border-default", light-theme-map.$light);
+    border-radius: map-get(core-map.$core, "border-radius");
+  }
+  .slotted-content {
+    padding-bottom: map-get(core-map.$core, "space-100");
+  }
+}

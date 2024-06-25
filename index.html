@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webcomponents Quick Start</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/@ugent-ui/css-reset/dist/reset.css"
+    />
+    <script type="module" src="/src/my-element.ts"></script>
+    <style>
+      section {
+        padding: var(--space-200, 16px);
+      }
+      my-element {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <my-element title="Hello!">
+        <p>
+          This is a Lit web component with a property, slotted content and a
+          CustomEvent. It uses Bootstrap for styling and integrates with the
+          UGent UI Design System.
+        </p>
+      </my-element>
+      <script>
+        const myElement = document.querySelector("my-element");
+        myElement.addEventListener("button-click", (e) => {
+          alert(e.detail.message);
+        });
+      </script>
+    </section>
+  </body>
+</html>

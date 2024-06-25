@@ -1,0 +1,23 @@
+{
+  "name": "quick-start",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "@ugent-ui/css-reset": "file:../../css-reset",
+    "@ugent-ui/design-tokens": "file:../../design-tokens",
+    "bootstrap": "^5.3.3",
+    "lit": "^3.1.2"
+  },
+  "devDependencies": {
+    "sass": "^1.77.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}
