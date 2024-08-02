@@ -3,6 +3,17 @@
   "version": "1.0.0-beta.1",
   "description": "Input webcomponent voor UGent webapplicaties.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UGentUI/textfield.git"
+  },
+  "keywords": [],
+  "author": "UGent DICT",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/UGentUI/textfield/issues"
+  },
+  "homepage": "https://github.com/UGentUI/textfield#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
