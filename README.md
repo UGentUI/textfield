@@ -41,7 +41,14 @@ npm add @ugent-ui/css-reset
     ></script>
   </head>
   <body>
-    <ug-textfield label="Name" placeholder="Enter your name"></ug-textfield>
+    <ug-textfield
+      label="Email address"
+      placeholder="name@example"
+      required
+      invalid
+    >
+      <div slot="help-text">Please enter a valid email address.</div>
+    </ug-textfield>
   </body>
 </html>
 ```
@@ -77,11 +84,3 @@ Gebruik de volgende tag om de component in je HTML op te nemen:
 ## Component slots
 
 - `help-text`: Hulptekst die onder het invoerveld wordt weergegeven.
-
-## Voorbeeldgebruik
-
-```html
-<ug-textfield label="Email address" placeholder="name@example" required invalid>
-  <div slot="help-text">Please enter a valid email address.</div>
-</ug-textfield>
-```
