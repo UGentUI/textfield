@@ -1,7 +1,7 @@
 {
-  "name": "quick-start",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@ugent-ui/textfield",
+  "version": "1.0.0-beta.1",
+  "description": "Input webcomponent voor UGent webapplicaties.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^6.0.0",
-    "@ugent-ui/css-reset": "file:../../css-reset",
-    "@ugent-ui/design-tokens": "file:../../design-tokens",
+    "@ugent-ui/css-reset": "latest",
+    "@ugent-ui/design-tokens": "latest",
     "bootstrap": "^5.3.3",
     "lit": "^3.1.2"
   },
@@ -19,5 +19,9 @@
     "sass": "^1.77.6",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
-  }
+  },
+  "main": "dist/assets/textfield.js",
+  "files": [
+    "dist/assets/textfield.js"
+  ]
 }

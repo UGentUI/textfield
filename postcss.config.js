@@ -5,7 +5,16 @@ export default {
     purgecss({
       content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx,html}"],
       safelist: {
-        //standard: [":host"], // Safelist patterns
+        standard: [
+          ":host",
+          "form-control",
+          "form-control-lg",
+          "form-control-sm",
+          "form-text",
+          "is-valid",
+          "is-invalid",
+          "invalid-feedback",
+        ], // Safelist patterns
       },
       defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
     }),

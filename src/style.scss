@@ -4,11 +4,14 @@
 @use "@ugent-ui/design-tokens/build/scss/_core-map" as core-map;
 @import "@ugent-ui/design-tokens/src/utils/scss/helpers";
 
-// Override Bootstrap
-// https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
-$primary: map-get(light-theme-map.$light, "color-text-brand");
-$input-btn-padding-y: map-get(core-map.$core, "space-100");
-$input-btn-padding-x: map-get(core-map.$core, "space-150");
+$form-feedback-icon-valid-color: token(
+  "color-text-succes",
+  light-theme-map.$light
+);
+$form-feedback-icon-invalid-color: token(
+  "color-text-danger",
+  light-theme-map.$light
+);
 
 // Import Bootstap
 @import "bootstrap/scss/bootstrap";
@@ -16,24 +19,28 @@ $input-btn-padding-x: map-get(core-map.$core, "space-150");
 :host {
   display: block; /* Ensure it has a layout */
 
-  // Set the global Bootstrap CSS variables that are not available within the
-  // shadow DOM's scope here
-  --bs-border-width: #{token("border-width-small", core-map.$core)};
-  --bs-border-radius: #{map-get(core-map.$core, "border-radius")};
+  --bs-border-width: var(--border-width-small);
+  --bs-border-radius: var(--border-radius-small);
+  --bs-border-color: var(--color-border-default);
+  --bs-body-color: var(--color-text-default);
+  --bs-body-bg: var(--elevation-surface-basic-default);
+  --bs-secondary-color: var(--color-text-subtlest);
+  --bs-form-valid-border-color: var(--color-border-succes);
+  --bs-form-invalid-border-color: var(--color-border-danger);
+  --bs-form-invalid-color: var(--color-border-danger);
+  --bs-secondary-bg: var(--color-background-disabled);
 
-  // Override bootstrap classes vars
-  .btn-primary {
-    --bs-btn-bg: #{token("color-text-brand", light-theme-map.$light)};
+  .form-text,
+  .invalid-feedback {
+    margin-top: var(--space-050);
+    font-size: var(--font-body-small);
   }
 
-  // Webcomponent customisations
-  .my-element {
-    padding: map-get(core-map.$core, "space-200");
-    border: token("border-width-small", core-map.$core) solid
-      token("color-border-default", light-theme-map.$light);
-    border-radius: map-get(core-map.$core, "border-radius");
+  input::placeholder {
+    color: #{token("color-text-subtle", light-theme-map.$light)};
   }
-  .slotted-content {
-    padding-bottom: map-get(core-map.$core, "space-100");
+
+  .form-control:disabled {
+    color: #{token("color-text-disabled", light-theme-map.$light)};
   }
 }

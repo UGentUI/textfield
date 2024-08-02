@@ -8,31 +8,136 @@
       rel="stylesheet"
       href="node_modules/@ugent-ui/css-reset/dist/reset.css"
     />
-    <script type="module" src="/src/my-element.ts"></script>
+    <script type="module" src="/src/textfield.ts"></script>
     <style>
       section {
         padding: var(--space-200, 16px);
       }
-      my-element {
+      .demo {
         width: 50%;
+      }
+      .demo h3 {
+        margin-bottom: var(--space-200, 16px);
       }
     </style>
   </head>
   <body>
     <section>
-      <my-element title="Hello!">
+      <header>
+        <h1>ug-textfield</h1>
         <p>
-          This is a Lit web component with a property, slotted content and a
-          CustomEvent. It uses Bootstrap for styling and integrates with the
-          UGent UI Design System.
+          Een aanpasbare input webcomponent voor verschillende text-based user
+          inputs, met ondersteuning voor validation, size, disabled, readonly,
+          en help text.
         </p>
-      </my-element>
-      <script>
-        const myElement = document.querySelector("my-element");
-        myElement.addEventListener("button-click", (e) => {
-          alert(e.detail.message);
-        });
-      </script>
+      </header>
     </section>
+    <section class="demo">
+      <h2>Values</h2>
+      <h3>Set</h3>
+      <ug-textfield label="Name" value="Johnny UGent"></ug-textfield>
+      <h3>Empty</h3>
+      <ug-textfield label="Name" value=""></ug-textfield>
+      <h2>Sizes</h2>
+      <h3>Default</h3>
+      <ug-textfield label="Name" placeholder="Enter your name"></ug-textfield>
+      <h3>Large</h3>
+      <ug-textfield
+        label="Name"
+        placeholder="Enter your name"
+        size="large"
+      ></ug-textfield>
+      <h3>Small</h3>
+      <ug-textfield
+        label="Name"
+        placeholder="Enter your name"
+        size="small"
+      ></ug-textfield>
+      <h2>Validation</h2>
+      <h3>Required</h3>
+      <ug-textfield
+        label="Name"
+        placeholder="Enter your name"
+        required
+      ></ug-textfield>
+      <h3>Valid</h3>
+      <ug-textfield
+        label="Name"
+        placeholder="Enter your name"
+        valid
+      ></ug-textfield>
+      <h3>Invalid</h3>
+      <ug-textfield
+        label="Name"
+        placeholder="Enter your name"
+        invalid
+      ></ug-textfield>
+      <h2>State</h2>
+      <h3>Disabled</h3>
+      <ug-textfield
+        label="Name"
+        placeholder="Enter your name"
+        disabled
+      ></ug-textfield>
+      <h3>Readonly</h3>
+      <ug-textfield
+        label="Name"
+        placeholder="Enter your name"
+        readonly
+      ></ug-textfield>
+      <h2>Help Text</h2>
+      <h3>Default</h3>
+      <ug-textfield
+        label="Email address"
+        placeholder="name@example.com"
+        required
+      >
+        <div slot="help-text">Please enter a valid email address.</div>
+      </ug-textfield>
+      <h3>Valid</h3>
+      <ug-textfield
+        label="Email address"
+        placeholder="name@example.com"
+        required
+        valid
+      >
+        <div slot="help-text">Please enter a valid email address.</div>
+      </ug-textfield>
+      <h3>Invalid</h3>
+      <ug-textfield
+        label="Email address"
+        placeholder="name@example"
+        required
+        invalid
+      >
+        <div slot="help-text">Please enter a valid email address.</div>
+      </ug-textfield>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const inputComponents = document.querySelectorAll("ug-textfield");
+
+        inputComponents.forEach((inputComponent) => {
+          inputComponent.addEventListener("focus", (event) => {
+            console.log("Focused:", event);
+          });
+
+          inputComponent.addEventListener("blur", (event) => {
+            console.log("Blurred:", event);
+          });
+
+          inputComponent.addEventListener("input", (event) => {
+            console.log("Input event:", event);
+            console.log("Current value:", inputComponent.value);
+          });
+
+          inputComponent.addEventListener("change", (event) => {
+            console.log("Change event:", event);
+            console.log("Current value:", inputComponent.value);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
